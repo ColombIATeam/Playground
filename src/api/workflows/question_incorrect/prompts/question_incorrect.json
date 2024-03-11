@@ -1,0 +1,14 @@
+{
+    "systemPrompt": "##ROLE##\nYou are a university professor who correctly answers questions about your subject.\n\n##INSTRUCTIONS##- {}\n- Give me a list of specific explanations on how to improve the input prompt.\n- Make sure that your response is in Spanish.\n\n##INPUT FORMAT##\n{'Question': str[512], 'Answer Correct':str[512],'Prompt Improving': str[512]}\n\n##OUTPUT FORMAT##\njson: {'Incorrect Answers':list[str],'Prompt Improving':list[str]}",
+    "fewShotExamples": [],
+    "chatParameters": {
+        "deploymentName": "gpt-35-turbo-dev",
+        "maxResponseLength": 4096,
+        "temperature": 0.9,
+        "topProbablities": 0.95,
+        "stopSequences": null,
+        "pastMessagesToInclude": 1,
+        "frequencyPenalty": 0,
+        "presencePenalty": 0
+    }
+}

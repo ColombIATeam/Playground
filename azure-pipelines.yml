@@ -1,0 +1,36 @@
+trigger:
+  branches:
+    include:
+      - feature/*
+
+pr:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  - group: secrets
+
+steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: "3.11"
+    displayName: "Use Python"
+
+  - script: |
+      pip install --upgrade pip
+      pip install pytest-azurepipelines
+      pip install --extra-index-url=$(ARTIFACT_FEED_EXTRA_INDEX_URL) --requirement requirements.txt --requirement requirements-dev.txt
+    displayName: "Install dependencies"
+
+  - script: python -m ruff check .
+    displayName: "Linter and formatter"
+
+  - script: python -m pyright .
+    displayName: "Linter and formatter"
+
+  - script: python -m pytest tests/unit
+    displayName: "Run unit tests"

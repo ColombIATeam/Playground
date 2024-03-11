@@ -1,0 +1,14 @@
+[tool.pyright]
+typeCheckingMode = "strict"
+
+[tool.ruff]
+src = ["src", "tests"]
+extend-include = ["*.ipynb"]
+
+[tool.ruff.lint]
+select = ["F", "E", "W", "N", "I"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "tests"]
+asyncio_mode = "auto"
