@@ -1,3 +1,4 @@
+from api.workflows.test_questions.test_workflow import TestWorkflow
 from api.workflows.question_correct.question_correct_workflow import QuestionCorrectWorkflow
 from api.workflows.question_incorrect.question_incorrect_workflow import QuestionIncorrectWorkflow
 from common.application_settings import ApplicationSettings
@@ -62,6 +63,15 @@ class DependencyContainer:
         logging.info("Creating QuestionIncorrectWorkflow with dependencies")
         cls._initialize_openai_engine()
         return QuestionIncorrectWorkflow(
+            cls.get_database_engine(),
+            cls.get_azure_openai_engine()
+        )
+        
+    @classmethod
+    def get_text_test_workflow(cls) -> TestWorkflow:
+        logging.info("Creating QuestionCorrectWorkflow with dependencies")
+        cls._initialize_openai_engine()
+        return TestWorkflow(
             cls.get_database_engine(),
             cls.get_azure_openai_engine()
         )
