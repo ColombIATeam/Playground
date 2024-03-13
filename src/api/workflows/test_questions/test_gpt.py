@@ -22,7 +22,7 @@ class GptTest:
                 "generate_test.json",
             )
         )
-        if prompt_improving=="":
+        if len(prompt_improving)<=5:
             prompt_improving = prompt
         
         last_msg: list[dict[str, str]] = []
