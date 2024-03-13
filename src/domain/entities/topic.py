@@ -12,7 +12,7 @@ class Topic(SQLModel, table=True):
     topic_name: str
     topic_version: Optional[str]
     description: Optional[str] = None
-    html_content: Optional[str] = None
+    # html_content: Optional[str] = None
     subject_id: Optional[int] = Field(foreign_key="subject.subject_id")
     # subject: 'Subject' = Relationship(back_populates="topics")
     # chat_topic: Optional[List['ChatTopic']] = Relationship(back_populates="topic")

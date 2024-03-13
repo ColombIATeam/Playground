@@ -39,15 +39,15 @@ class ApplicationSettings(BaseSettings):
 
     # APPLICATION_INSIGHTS__CONNECTION_STRING: str
  
-    # SQL_SERVER__HOST: str = "adp-ha.unir.net"
-    # SQL_SERVER__PORT: int = 22334
-    # SQL_SERVER__USERNAME: str = "prep.Col"
-    # SQL_SERVER__PASSWORD: str = "Inn0v4c10n#24"
-    # SQL_SERVER__NAME: str = "IA"
+    SQL_SERVER__HOST: str = "adp-ha.unir.net"
+    SQL_SERVER__PORT: int = 22334
+    SQL_SERVER__USERNAME: str = "prep.Col"
+    SQL_SERVER__PASSWORD: str = "Inn0v4c10n#24"
+    SQL_SERVER__NAME: str = "IA"
     
     # SQL_SERVER__CONNECTION_STRING: str
-    SQL_SERVER__HOST: str = "mssql-server-preparador-dev-we-001.database.windows.net"
-    SQL_SERVER__PORT: int = 1433
-    SQL_SERVER__USERNAME: str = "user4defOP7r479X"
-    SQL_SERVER__PASSWORD: str = "v3lllscr37-244saafD-wd33434DLz"
-    SQL_SERVER__NAME: str = "preparador"
+    # SQL_SERVER__HOST: str = "mssql-server-preparador-dev-we-001.database.windows.net"
+    # SQL_SERVER__PORT: int = 1433
+    # SQL_SERVER__USERNAME: str = "user4defOP7r479X"
+    # SQL_SERVER__PASSWORD: str = "v3lllscr37-244saafD-wd33434DLz"
+    # SQL_SERVER__NAME: str = "preparador"
