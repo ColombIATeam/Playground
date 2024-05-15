@@ -1,6 +1,6 @@
 import uvicorn
 
-if not __name__.startswith("__mp"):
+'''if not __name__.startswith("__mp"):
     from fastapi import FastAPI
     from fastapi.middleware.cors import CORSMiddleware
 
@@ -23,4 +23,8 @@ if not __name__.startswith("__mp"):
     app.include_router(question_router.router)
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", host="0.0.0.0", port=8000)
+    uvicorn.run("main:app", host="0.0.0.0", port=80)
+    '''
+
+if __name__ == "__main__":
+    uvicorn.run("gradio_app:app", host="0.0.0.0", port=80, log_level="info")

@@ -25,8 +25,8 @@ class ApplicationSettings(BaseSettings):
     #     )
     GLOBAL__ENVIRONMENT: str = "dev"
     
-    OPEN_AI__API_KEY: str = "14cb2269883c4138a5ecb3e773fd3ce7"
-    OPEN_AI__AZURE_ENDPOINT: str = "https://proyectoiaopenaifcdev.openai.azure.com/"
+    OPEN_AI__API_KEY: str = "c29595dd045545f3b8ae04c999faca04"
+    OPEN_AI__AZURE_ENDPOINT: str = "https://proyectoiaopenaiscdev.openai.azure.com/"
     OPEN_AI__API_VERSION: str = "2023-07-01-preview"
     # OPEN_AI_EMBEDDINGS__API_TYPE: str
     # OPEN_AI_EMBEDDINGS__API_KEY: str
@@ -39,11 +39,11 @@ class ApplicationSettings(BaseSettings):
 
     # APPLICATION_INSIGHTS__CONNECTION_STRING: str
  
-    SQL_SERVER__HOST: str = "adp-ha.unir.net"
-    SQL_SERVER__PORT: int = 22334
-    SQL_SERVER__USERNAME: str = "prep.Col"
-    SQL_SERVER__PASSWORD: str = "Inn0v4c10n#24"
-    SQL_SERVER__NAME: str = "IA"
+    SQL_SERVER__HOST: str = "mssql-server-arc-dev-we-001.database.windows.net"
+    SQL_SERVER__PORT: int = 1433
+    SQL_SERVER__USERNAME: str = "4d22157r479X"
+    SQL_SERVER__PASSWORD: str = "4-v3lllscr37-p455w0rd"
+    SQL_SERVER__NAME: str = "playground_prep"
     
     # SQL_SERVER__CONNECTION_STRING: str
     # SQL_SERVER__HOST: str = "mssql-server-preparador-dev-we-001.database.windows.net"

@@ -1,3 +1,4 @@
+import sys
 from api.workflows.test_questions.test_workflow import TestWorkflow
 from api.workflows.question_correct.question_correct_workflow import QuestionCorrectWorkflow
 from api.workflows.question_incorrect.question_incorrect_workflow import QuestionIncorrectWorkflow
@@ -15,6 +16,7 @@ class DependencyContainer:
 
     @classmethod
     def initialize(cls) -> None:
+        #logging.basicConfig(stream=sys.stdout, level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s", datefmt="%Y-%m-%dT%H:%M:%S")
         logging.info("Initializing DependencyContainer")
         cls._initialize_application_settings()
         cls._initialize_database_engine()
@@ -50,28 +52,31 @@ class DependencyContainer:
         )
 
     @classmethod
-    def get_question_correct_workflow(cls) -> QuestionCorrectWorkflow:
+    def get_question_correct_workflow(cls,eval_switch) -> QuestionCorrectWorkflow:
         logging.info("Creating QuestionCorrectWorkflow with dependencies")
         cls._initialize_openai_engine()
         return QuestionCorrectWorkflow(
+            eval_switch,
             cls.get_database_engine(),
             cls.get_azure_openai_engine()
         )
     
     @classmethod
-    def get_question_incorrect_workflow(cls) -> QuestionIncorrectWorkflow:
+    def get_question_incorrect_workflow(cls,eval_switch) -> QuestionIncorrectWorkflow:
         logging.info("Creating QuestionIncorrectWorkflow with dependencies")
         cls._initialize_openai_engine()
         return QuestionIncorrectWorkflow(
+            eval_switch,
             cls.get_database_engine(),
             cls.get_azure_openai_engine()
         )
         
     @classmethod
-    def get_text_test_workflow(cls) -> TestWorkflow:
-        logging.info("Creating QuestionCorrectWorkflow with dependencies")
+    def get_text_test_workflow(cls,eval_switch) -> TestWorkflow:
+        logging.info("Creating TestWorkflow with dependencies")
         cls._initialize_openai_engine()
         return TestWorkflow(
+            eval_switch,
             cls.get_database_engine(),
             cls.get_azure_openai_engine()
         )

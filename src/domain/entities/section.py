@@ -11,10 +11,6 @@ class Section(SQLModel, table=True):
     section_name: str
     content: str = ""
     topic_id: int = Field(foreign_key="topic.topic_id")
-    # topic: 'Topic' = Relationship(back_populates="sections")
-    # terms: Optional[List['Term']] = Relationship(back_populates="section")
-    # formulas: Optional[List['Formula']] = Relationship(back_populates="section")
-    # summary: Optional['Summary'] = Relationship(back_populates="section")
     metadata = metadata
     def __eq__(self, other):
         if not isinstance(other, Section):

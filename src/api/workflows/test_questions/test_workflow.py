@@ -9,14 +9,19 @@ class TestWorkflow:
     _gpt_test: GptTest
     
     def __init__(self,
+        eval_switch,
         database_engine: Engine,
         azure_openai_client: AzureOpenAI
+        
     ) -> None:
         self._database_engine = database_engine
         self._gpt_test = GptTest(client=azure_openai_client)
-
-    def execute(self, request: TestRequest) -> GenerarTestsResponse:
-        preguntas = self._gpt_test.get_text_test(request.text,request.prompt,msg=[])
+        self.eval_switch = eval_switch
         
-        output = GenerarTestsResponse(test=preguntas['test'])
-        return output
+    def execute(self, request: TestRequest) -> GenerarTestsResponse:
+        preguntas = self._gpt_test.get_text_test(request.text,request.prompt)
+        if self.eval_switch:
+            prompt_improving = self._gpt_test.get_question_eval(prompt_improving=request.prompt)
+            return GenerarTestsResponse(test=preguntas['preguntas'], prompt_improving=prompt_improving)
+        else:
+            return GenerarTestsResponse(test=preguntas['preguntas'], prompt_improving="Evaluación de Prompt Desactivada")

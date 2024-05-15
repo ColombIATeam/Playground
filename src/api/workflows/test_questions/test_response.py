@@ -9,3 +9,4 @@ class TestQuestion(BaseModel):
 
 class GenerarTestsResponse(BaseModel):
     test: List[TestQuestion]
+    prompt_improving: str

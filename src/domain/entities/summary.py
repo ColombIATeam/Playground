@@ -1,18 +1,16 @@
-from typing import TYPE_CHECKING, Optional
-from sqlmodel import Field, MetaData, SQLModel
+from typing import TYPE_CHECKING, Optional, List
+from sqlmodel import Field, MetaData, Relationship, SQLModel, ForeignKey
 
 
 if TYPE_CHECKING: pass
 SCHEMA_NAME = "tagger"
 metadata = MetaData(schema=SCHEMA_NAME)
+
 class Summary(SQLModel, table=True):
     summary_id: Optional[int] = Field(default=None, primary_key=True)
     summary: str
     section_id: int = Field(foreign_key="section.section_id")
-    # section: 'Section' = Relationship(back_populates="summary")
-    # chat_summary: Optional[List['ChatSummary']] = Relationship(back_populates="summary")
     metadata = metadata
-
     def __eq__(self, other):
         if not isinstance(other, Summary):
             return False
